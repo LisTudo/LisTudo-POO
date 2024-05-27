@@ -6,8 +6,9 @@ public class Produto {
     private double preco;
     private int quantidade;
 
-    public Produto(String nome) {
+    public Produto(String nome, int quantidade) {
         this.nome = nome;
+        this.quantidade = quantidade;
     }
 
 
@@ -37,5 +38,10 @@ public class Produto {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    @Override
+    public String toString() {
+        return this.nome + " x" + quantidade;
     }
 }

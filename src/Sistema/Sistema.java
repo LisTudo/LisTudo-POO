@@ -11,8 +11,9 @@ public class Sistema {
             System.out.println("MENU" +
                     "\n1 - ADICIONAR ITENS" +
                     "\n2 - EXIBIR LISTA" +
-                    "\n3 - IR AO MERCADO" +
-                    "\n4 - SAIR");
+                    "\n3 - ADICIONAR CESTA BÁSICA" +
+                    "\n4 - IR AO MERCADO" +
+                    "\n5 - SAIR");
             System.out.print("INFORME: ");
             int opcao = scanner.nextInt();
 
@@ -24,11 +25,13 @@ public class Sistema {
                     ListaDeCompras.exibirLista();
                     break;
                 case 3:
-                    System.out.println("opcao 3");
+                    ListaDeCompras.listaPronta();
                     break;
                 case 4:
-                    System.exit(0);
+                    ListaDeCompras.irAoMercado();
                     break;
+                case 5:
+                    System.exit(0);
                 default:
                     System.out.println("Informe uma das opções válidas.");
             }
