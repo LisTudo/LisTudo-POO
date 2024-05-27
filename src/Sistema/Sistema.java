@@ -2,12 +2,14 @@ package Sistema;
 
 import Entities.ListaDeCompras;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Sistema {
 
     public static void menuInicial(Scanner scanner) {
         while (true) {
+
             System.out.println("MENU" +
                     "\n1 - ADICIONAR ITENS" +
                     "\n2 - EXIBIR LISTA" +
@@ -20,7 +22,14 @@ public class Sistema {
 
             switch (opcao) {
                 case 1:
-                    ListaDeCompras.adicionarProduto();
+                    try { // Tratamento de exceções para caso o usuário digite um valor que não seja int para a quantidade
+                        ListaDeCompras.adicionarProduto();
+                    }catch (InputMismatchException e) {
+                        System.out.println("ENTRADA INVÁLIDA");
+                    }catch (Exception exception) {
+                        exception.getMessage();
+                        exception.printStackTrace();
+                    }
                     break;
                 case 2:
                     ListaDeCompras.exibirLista();
