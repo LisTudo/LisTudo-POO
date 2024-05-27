@@ -12,7 +12,7 @@ public class ListaDeCompras {
     public static void adicionarProduto() {
 
         Scanner scanner = new Scanner(System.in);
-
+        System.out.println("PRESSIONE \"Q\"" +  " PARA SAIR");
         for (int i = 0; i < listaDeCompras.size(); i++) { // exibindo a lista para o usuário
             System.out.println((i + 1) + " " + listaDeCompras.get(i).getNome());
         }
