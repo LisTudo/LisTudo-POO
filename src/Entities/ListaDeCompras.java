@@ -39,6 +39,9 @@ public class ListaDeCompras {
 
         System.out.print("Informe o número do item que deseja excluir: ");
         int numeroItem = scanner.nextInt();
+        if (numeroItem > listaDeCompras.size()) {
+            throw new IndexOutOfBoundsException("O item não existe na lista.");
+        }
         scanner.nextLine();
         System.out.println();
         listaDeCompras.remove(numeroItem - 1);

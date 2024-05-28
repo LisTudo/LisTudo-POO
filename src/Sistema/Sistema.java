@@ -27,7 +27,7 @@ public class Sistema {
                     }catch (InputMismatchException e) {
                         System.out.println("ENTRADA INVÁLIDA");
                     }catch (Exception exception) {
-                        exception.getMessage();
+                        System.out.println(exception.getMessage());
                         exception.printStackTrace();
                     }
                     break;
@@ -38,10 +38,21 @@ public class Sistema {
                     ListaDeCompras.listaPronta();
                     break;
                 case 4:
-                    ListaDeCompras.irAoMercado();
+                    try { // Tratamento de exceções para caso o usuário digite um valor que não seja int para a quantidade
+                        ListaDeCompras.irAoMercado();
+                    }catch (InputMismatchException e) {
+                        System.out.println("ENTRADA INVÁLIDA");
+                    }catch (Exception exception) {
+                        System.out.println(exception.getMessage());
+                        exception.printStackTrace();
+                    }
                     break;
                 case 5:
-                    ListaDeCompras.excluirItem();
+                    try {
+                        ListaDeCompras.excluirItem();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 6:
                     System.exit(0);
