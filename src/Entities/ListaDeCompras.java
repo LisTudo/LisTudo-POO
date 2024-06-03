@@ -37,14 +37,21 @@ public class ListaDeCompras {
     public static void excluirItem() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Informe o número do item que deseja excluir: ");
+        System.out.print("INFORME O NÚMERO DO ITEM QUE DESEJA EXCLUIR: ");
         int numeroItem = scanner.nextInt();
         if (numeroItem > listaDeCompras.size()) {
-            throw new IndexOutOfBoundsException("O item não existe na lista.");
+            throw new IndexOutOfBoundsException("O ITEM NÃO EXISTE NA LISTA.");
         }
         scanner.nextLine();
         System.out.println();
         listaDeCompras.remove(numeroItem - 1);
+
+        double precoTotal = 0;
+        for (int j = 0; j < listaDeCompras.size(); j++) {
+            precoTotal += (listaDeCompras.get(j).getPreco()) * (listaDeCompras.get(j).getQuantidade());
+            ListaDeCompras.setPrecoTotal(precoTotal);
+        }
+
 
     }
 
@@ -52,15 +59,15 @@ public class ListaDeCompras {
         Scanner scanner = new Scanner(System.in);
         String opcao = "";
 
-        System.out.println("DESEJA ADICIONAR OS ITENS BÁSICOS ABAIXO?" +
-                "\nARROZ" +
+        System.out.println("\nARROZ" +
                 "\nFEIJÃO" +
                 "\nÓLEO" +
                 "\nAÇÚCAR" +
                 "\nCAFÉ" +
                 "\nSAL" +
                 "\nMACARRÃO" +
-                "\nLEITE");
+                "\nLEITE" +
+                "\n\nDESEJA ADICIONAR OS ITENS BÁSICOS ACIMA? (\"S\" PARA CONFIRMAR)");
         opcao = scanner.nextLine();
 
         if (opcao.equalsIgnoreCase("s")) {
@@ -75,7 +82,7 @@ public class ListaDeCompras {
         }
 
         exibirLista();
-        System.out.println("Deseja adicionar mais itens?");
+        System.out.println("DESEJA ADICIONAR MAIS ITENS? (\"S\" PARA CONFIRMAR)");
         opcao = scanner.nextLine();
 
         if (opcao.equalsIgnoreCase("s")) {
@@ -90,13 +97,15 @@ public class ListaDeCompras {
             for (int i = 0; i < listaDeCompras.size(); i++) {
                 System.out.println((i + 1) + " " + listaDeCompras.get(i).toString());
             }
+            if (ListaDeCompras.getPrecoTotal() != 0) {
+                System.out.printf("\nPRECO TOTAL = R$ %.2f" , ListaDeCompras.getPrecoTotal());
+            }
         } else {
-            System.out.println("NENHUM ITEM ADICIONADO. DESEJA ADICIONAR?");
+            System.out.println("NENHUM ITEM ADICIONADO. DESEJA ADICIONAR? (\"S\" PARA CONFIRMAR):");
             String opcao = scanner.nextLine();
 
             if (opcao.equalsIgnoreCase("S")) {
                 adicionarProduto();
-
 
             }
         }
