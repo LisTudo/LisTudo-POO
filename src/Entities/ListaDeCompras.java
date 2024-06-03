@@ -114,7 +114,7 @@ public class ListaDeCompras {
         }
         double precoTotal = 0;
         for (int j = 0; j < listaDeCompras.size(); j++) {
-            precoTotal += listaDeCompras.get(j).getPreco();
+            precoTotal += (listaDeCompras.get(j).getPreco()) * (listaDeCompras.get(j).getQuantidade());
             ListaDeCompras.setPrecoTotal(precoTotal);
         }
         System.out.printf("PREÇO TOTAL: R$ %.2f \nPAGUE NO CAIXA\n" , ListaDeCompras.getPrecoTotal());
