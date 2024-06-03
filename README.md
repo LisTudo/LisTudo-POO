@@ -2,7 +2,7 @@
 <p align="center">
   <a href="#">
     <kbd>
-      <img src="midia\LisTudo.png" width="200" alt="Logo">
+      <img src="midia\LisTudo.png" width="150" alt="Logo">
     <kbd>
   </a>
 </p>
@@ -22,7 +22,7 @@ Repositório A3 - Programação de Soluções Computacionais
 
 1. **Clone o repositório:**
 
-   ``` git clone ****
+   ``` git clone https://github.com/LisTudo/LisTudo-POO.git
    ```
 
 2. **Acesse o sistema:**
@@ -52,6 +52,12 @@ Repositório A3 - Programação de Soluções Computacionais
 
 - **Contato:**
 * Email: [lisTudo@gmail.com](mailto:lisTudo@gmail.com)
-* Autores: @mandybang @FelipeBastos2 @JoaoV-Santos @CaioTorres93 @LuizFelipe17 
+
+* Autores: 
+- [Amanda Fonseca](https://github.com/mandybang) 
+- [Felipe Bastos](https://github.com/FelipeBastos2)
+- [João Vitor Santos](https://github.com/JoaoV-Santos) 
+- [Caio Torres](https://github.com/CaioTorres93)
+- [Luiz Felipe](https://github.com/orgs/LisTudo/people/luizfelipe17)
 
 ---
