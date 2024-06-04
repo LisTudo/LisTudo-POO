@@ -5,12 +5,13 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ListaDeCompras {
-    private static ArrayList<Produto> listaDeCompras = new ArrayList<Produto>();
-    private static double precoTotal;
+    private final ArrayList<Produto> listaDeCompras = new ArrayList<>();
+    private double precoTotal;
+
 
     Scanner scanner = new Scanner(System.in);
 
-    public static void adicionarProduto() {
+    public void adicionarProduto() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("PRESSIONE \"Q\"" +  " PARA SAIR");
@@ -34,7 +35,7 @@ public class ListaDeCompras {
         }
     }
 
-    public static void excluirItem() {
+    public void excluirItem() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("INFORME O NÚMERO DO ITEM QUE DESEJA EXCLUIR: ");
@@ -49,13 +50,13 @@ public class ListaDeCompras {
         double precoTotal = 0;
         for (int j = 0; j < listaDeCompras.size(); j++) {
             precoTotal += (listaDeCompras.get(j).getPreco()) * (listaDeCompras.get(j).getQuantidade());
-            ListaDeCompras.setPrecoTotal(precoTotal);
+            setPrecoTotal(precoTotal);
         }
 
 
     }
 
-    public static void listaPronta() {
+    public void listaPronta() {
         Scanner scanner = new Scanner(System.in);
         String opcao = "";
 
@@ -86,19 +87,19 @@ public class ListaDeCompras {
         opcao = scanner.nextLine();
 
         if (opcao.equalsIgnoreCase("s")) {
-            ListaDeCompras.adicionarProduto();
+            adicionarProduto();
         }
     }
 
-    public static void exibirLista() {
+    public void exibirLista() {
         Scanner scanner = new Scanner(System.in);
 
         if (!listaDeCompras.isEmpty()) { // Método para verificar se a lista está vazia
             for (int i = 0; i < listaDeCompras.size(); i++) {
                 System.out.println((i + 1) + " " + listaDeCompras.get(i).toString());
             }
-            if (ListaDeCompras.getPrecoTotal() != 0) {
-                System.out.printf("\nPRECO TOTAL = R$ %.2f" , ListaDeCompras.getPrecoTotal());
+            if (getPrecoTotal() != 0) {
+                System.out.printf("\nPRECO TOTAL = R$ %.2f" , getPrecoTotal());
             }
         } else {
             System.out.println("NENHUM ITEM ADICIONADO. DESEJA ADICIONAR? (\"S\" PARA CONFIRMAR):");
@@ -112,7 +113,7 @@ public class ListaDeCompras {
 
     }
 
-    public static void irAoMercado() {
+    public void irAoMercado() {
         Scanner sacnner = new Scanner(System.in);
 
         System.out.println("INFORME O PREÇO ENCONTRADO PARA OS ITENS DA LISTA");
@@ -124,16 +125,18 @@ public class ListaDeCompras {
         double precoTotal = 0;
         for (int j = 0; j < listaDeCompras.size(); j++) {
             precoTotal += (listaDeCompras.get(j).getPreco()) * (listaDeCompras.get(j).getQuantidade());
-            ListaDeCompras.setPrecoTotal(precoTotal);
+
         }
-        System.out.printf("PREÇO TOTAL: R$ %.2f \nPAGUE NO CAIXA\n" , ListaDeCompras.getPrecoTotal());
+        setPrecoTotal(precoTotal);
+        System.out.printf("PREÇO TOTAL: R$ %.2f \nPAGUE NO CAIXA\n" , getPrecoTotal());
     }
 
-    public static double getPrecoTotal() {
+    public double getPrecoTotal() {
         return precoTotal;
     }
 
-    public static void setPrecoTotal(double precoTotal) {
-        ListaDeCompras.precoTotal = precoTotal;
+    public void setPrecoTotal(double precoTotal) {
+        this.precoTotal = precoTotal;
     }
+
 }

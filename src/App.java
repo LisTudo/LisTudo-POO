@@ -7,6 +7,7 @@ public class App {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Boas Vindas!");
-        Sistema.menuInicial(scanner);
+        Sistema sistema = new Sistema();
+        sistema.menuInicial(scanner);
     }
 }

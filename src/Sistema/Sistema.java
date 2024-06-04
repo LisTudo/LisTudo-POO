@@ -7,7 +7,11 @@ import java.util.Scanner;
 
 public class Sistema {
 
-    public static void menuInicial(Scanner scanner) {
+
+
+    ListaDeCompras listagem = new ListaDeCompras();
+
+    public void menuInicial(Scanner scanner) {
         while (true) {
 
             System.out.println("\nMENU" +
@@ -23,7 +27,7 @@ public class Sistema {
             switch (opcao) {
                 case 1:
                     try { // Tratamento de excecoes para caso o usuario digite um valor que não seja int para a quantidade
-                        ListaDeCompras.adicionarProduto();
+                        listagem.adicionarProduto();
                     }catch (InputMismatchException e) {
                         System.out.println("ENTRADA INVÁLIDA");
                     }catch (Exception exception) {
@@ -32,14 +36,14 @@ public class Sistema {
                     }
                     break;
                 case 2:
-                    ListaDeCompras.exibirLista();
+                    listagem.exibirLista();
                     break;
                 case 3:
-                    ListaDeCompras.listaPronta();
+                    listagem.listaPronta();
                     break;
                 case 4:
                     try { // Tratamento de excecoes para caso o usuario digite um valor que não seja int para a quantidade
-                        ListaDeCompras.irAoMercado();
+                        listagem.irAoMercado();
                     }catch (InputMismatchException e) {
                         System.out.println("ENTRADA INVÁLIDA");
                     }catch (Exception exception) {
@@ -49,7 +53,7 @@ public class Sistema {
                     break;
                 case 5:
                     try {
-                        ListaDeCompras.excluirItem();
+                        listagem.excluirItem();
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
