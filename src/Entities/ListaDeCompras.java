@@ -3,6 +3,11 @@ package Entities;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
+/**
+ * Esta classe e a abstracao da lista de compras que sera construida e alterada pelo usuario. Possui os metodos necessarios para
+ * manipulacao da lista e dos objetos da classe Produto que forem armazenados nela.
+ */
 public class ListaDeCompras {
     private final ArrayList<Produto> listaDeProdutos = new ArrayList<>();
     private double precoTotal;
