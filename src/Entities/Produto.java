@@ -43,10 +43,10 @@ public class Produto {
     @Override
     public String toString() {
         String texto = "";
-        if (preco != 0) { // Condicional para verificar quando o preco ainda nao foi incluido nos itens da lista
-            texto =  this.nome + " x" + quantidade + " | R$ " + (preco * quantidade);
+        if (this.preco != 0) { // Condicional para verificar quando o preco ainda nao foi incluido nos itens da lista
+            texto =  this.nome + " x" + this.quantidade + " | R$ " + (this.preco * this.quantidade);
         } else {
-            texto =  this.nome + " x" + quantidade;
+            texto =  this.nome + " x" + this.quantidade;
         }
         return texto;
     }
