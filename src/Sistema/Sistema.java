@@ -1,23 +1,33 @@
 package Sistema;
 
 import Entities.ListaDeCompras;
-import Entities.Produto;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Esta e a classe responsavel pelas exibicoes e leitura de dados ao usuario. Contem os metodos necessarios para fornecer
+ * os parametros necessarios para as classes Produto e ListaDeCompras para realizar as manipulacoes de seus respectivos objetos.
+ */
 public class Sistema {
 
+
+    /**
+     * Instancia da classe ListaDeCompras para construir o objeto onde serao armazenados os objetos da classe Produto.
+     */
     ListaDeCompras listagem = new ListaDeCompras();
     Scanner scanner = new Scanner(System.in);
 
-
+    /**
+     * Metodo responsavel por dar as boas vindas ao usuario, sinalizando o inicio do programa.
+     */
     public void boasVindas() {
-        System.out.println("Boas Vindas!");
+        System.out.println("BOAS VINDAS!");
     }
 
     /**
-     * Metodo responsavel
+     * Metodo responsavel pela exibição dos itens da lista. Utiliza um laco de repeticao for para percorrer o ArrayList de
+     * produtos.
      */
     public void exibirLista() {
         for (int i = 0; i < listagem.tamanhoLista(); i++) { // exibindo a lista para o usuário
@@ -25,8 +35,12 @@ public class Sistema {
         }
     }
 
+    /**
+     * Meto responsavel por realizar a impressão da lista, incluindo o preco total da compra. Ao final da impressao, o programa
+     * pergunta se o usuario deseja adicionar mais itens, caso sim, entra no metodo lerProdutos().
+     */
     public void apresentarLista() {
-        if (!listagem.getListaDeProdutos().isEmpty()) { // Método para verificar se a lista está vazia
+        if (!listagem.getListaDeProdutos().isEmpty()) {
             exibirLista();
             if (listagem.getPrecoTotal() != 0) {
                 System.out.printf("\nPRECO TOTAL = R$ %.2f" , listagem.getPrecoTotal());
@@ -41,6 +55,11 @@ public class Sistema {
         }
     }
 
+    /**
+     * Metodo responsavel por realizar a leitura e transmissao dos parametros necessarios para a construcao dos objetos
+     * da classe Produto para a classe ListaDeCompras. E utilizado um loop while para que o usuario possa informar varios
+     * produtos antes de retornar ao menu inicial.
+     */
     public void lerProdutos() {
 
         while (true) {
@@ -59,6 +78,11 @@ public class Sistema {
         }
     }
 
+    /**
+     * Este metodo tem a funcao de apresentar uma lista pre-definida de produtos considerados "esenciais", para que o usuario
+     * consiga adiciona-los de uma vez. Antes de finalizar a execucao do metodo, o progama pergunta ao usuario se deseja
+     * adicionar mais algum item personalizado na lista, atraves do metodo adicionarProduto().
+     */
     public void exibirCestaBasica() {
         System.out.println("DESEJA ADICIONAR OS ITENS ABAIXO?");
         System.out.println("\nARROZ" +
@@ -93,6 +117,10 @@ public class Sistema {
         }
     }
 
+    /**
+     * Atraves da execucao deste metodo, o usuario consegue adicionar a cada produto o preco encontrado. A partir desta entrada
+     * o programa calcula o preco total de cada produto e o preco total da compra do usuario.
+     */
     public void irAoMercado() {
         System.out.println("INFORME O PREÇO ENCONTRADO PARA OS ITENS DA LISTA");
         for (int i = 0; i < listagem.tamanhoLista(); i++) {
@@ -105,6 +133,12 @@ public class Sistema {
     }
 
 
+    /**
+     * Atraves deste metodo, o usuario consegue excluir os itens dos quais nao ira mais precisar. E realizada a leitura do
+     * indice do item atraves do Scanner() removendo o respectivo objeto da classe Produto do ArrayList listaDeProdutos.
+     * Após isso, o programa realizar a atualizacao do preco total da compra atraves do metodo atualizarPrecoTotal() da Classe
+     * ListaDeCompras.
+     */
     public void excluirItem() {
         exibirLista();
         System.out.println();
@@ -119,7 +153,10 @@ public class Sistema {
         apresentarLista();
     }
 
-
+    /**
+     * Este metodo e responsavel por exibir o menu inicial e ler a opcao escolhida pelo usuario, redirecionando-o para o metodo
+     * responsavel pela acao escolhida.
+     */
     public void menuInicial() {
         while (true) {
 
