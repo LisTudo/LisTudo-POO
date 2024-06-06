@@ -169,7 +169,14 @@ public class Sistema {
                     "\n6 - SAIR");
             System.out.print("INFORME: ");
             System.out.println();
-            int opcao = scanner.nextInt();
+            int opcao = 0;
+            try {
+                opcao = scanner.nextInt();
+            } catch (InputMismatchException e) {
+                System.out.println("ENTRADA INVALIDA. INFORME UM NUMERO INTEIRO.");
+                scanner.nextLine(); // Consumindo a proxima linha no buffer
+                continue; //Retornando ao inicio do loop
+            }
 
             switch (opcao) {
                 case 1:
@@ -193,7 +200,7 @@ public class Sistema {
                     try { // Tratamento de excecoes para caso o usuario digite um valor que não seja int para a quantidade
                         irAoMercado();
                     }catch (InputMismatchException e) {
-                        System.out.println("ENTRADA INVÁLIDA");
+                        System.out.println("ENTRADA INVÁLIDA. INFORME UM NUMERO INTEIRO.");
                     }catch (Exception exception) {
                         System.out.println(exception.getMessage());
                         exception.printStackTrace();
@@ -213,5 +220,6 @@ public class Sistema {
                     System.out.println("ENTRADA INVALIDA. ESCOLHA UMA DAS OPCOES ABAIXO:");
             }
         }
+
     }
 }
