@@ -36,7 +36,7 @@ public class Sistema {
     }
 
     /**
-     * Meto responsavel por realizar a impressão da lista, incluindo o preco total da compra. Ao final da impressao, o programa
+     * Metodo responsavel por realizar a impressão da lista, incluindo o preco total da compra. Ao final da impressao, o programa
      * pergunta se o usuario deseja adicionar mais itens, caso sim, entra no metodo lerProdutos().
      */
     public void apresentarLista() {
