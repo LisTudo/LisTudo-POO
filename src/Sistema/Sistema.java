@@ -84,6 +84,7 @@ public class Sistema {
      * adicionar mais algum item personalizado na lista, atraves do metodo adicionarProduto().
      */
     public void exibirCestaBasica() {
+        scanner.nextLine();
         System.out.println("DESEJA ADICIONAR OS ITENS ABAIXO?");
         System.out.println("\nARROZ" +
                 "\nFEIJÃO" +
@@ -140,17 +141,21 @@ public class Sistema {
      * ListaDeCompras.
      */
     public void excluirItem() {
-        exibirLista();
-        System.out.println();
-        System.out.print("INFORME O NÚMERO DO ITEM QUE DESEJA EXCLUIR: ");
-        int numeroItem = scanner.nextInt();
-        if (numeroItem > listagem.tamanhoLista()) {
-            throw new IndexOutOfBoundsException("O ITEM NÃO EXISTE NA LISTA.");
-        }
-        scanner.nextLine();
-        System.out.println();
-        listagem.removerProduto(numeroItem - 1);
-        apresentarLista();
+        do {
+            apresentarLista();
+            System.out.println();
+            System.out.print("INFORME O NÚMERO DO ITEM QUE DESEJA EXCLUIR. (DIGITE  '0' PARA SAIR): ");
+            int numeroItem = scanner.nextInt();
+            if (numeroItem > listagem.tamanhoLista()) {
+                throw new IndexOutOfBoundsException("O ITEM NÃO EXISTE NA LISTA.");
+            }
+            if (numeroItem == 0) {
+                break;
+            }
+            scanner.nextLine();
+            System.out.println();
+            listagem.removerProduto(numeroItem - 1);
+        } while (true);
     }
 
     /**
