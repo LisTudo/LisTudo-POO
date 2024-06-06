@@ -66,25 +66,25 @@ public class ListaDeCompras {
 
 
     /**
-     *
-     * @return
+     *Metodo para retornar o tamanho do ArrayList de produtos através do metodo size().
+     * @return Retorna um int, tamanho da lista de produtos.
      */
     public int tamanhoLista() {
         return listaDeProdutos.size();
     }
 
     /**
-     *
-     * @return
+     * Este metodo retorna o ArrayList, listaDeProdutos, contendo os produtos adicionados pelo usuario.
+     * @return Retorna um ArrayList de produtos.
      */
     public ArrayList getListaDeProdutos() {
         return listaDeProdutos;
     }
 
     /**
-     *
-     * @param indiceProduto
-     * @return
+     * Metodo responsavel por retornar um produto para ser manipulado por outros metodos.
+     * @param indiceProduto O metodo requer como parametro um int para representar o indice do produto a ser retornado da lista de compras.
+     * @return E retornado um objeto da classe Produto.
      */
     public Produto retornarProduto(int indiceProduto) {
         return listaDeProdutos.get(indiceProduto);
