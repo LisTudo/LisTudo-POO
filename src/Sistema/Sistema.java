@@ -23,7 +23,7 @@ public class Sistema {
      */
     public void boasVindas() {
         System.out.println("BOAS VINDAS!");
-    }
+    } // A classe de sistema não deve ser responsável pela impress"ao de dados. Devolva a string para o método principal, se esta for a sua interface do sistema OK!
 
     /**
      * Metodo responsavel pela exibição dos itens da lista. Utiliza um laco de repeticao for para percorrer o ArrayList de
@@ -47,7 +47,7 @@ public class Sistema {
             }
         } else {
             System.out.println("NENHUM ITEM ADICIONADO. DESEJA ADICIONAR? (\"S\" PARA CONFIRMAR):");
-            String opcao = scanner.nextLine();
+            String opcao = scanner.nextLine(); // Durante minha execução este comando não foi executado.
 
             if (opcao.equalsIgnoreCase("S")) {
                 lerProdutos();
@@ -68,7 +68,7 @@ public class Sistema {
             String nomeDoProduto = scanner.nextLine();
             int quantidade = 0;
 
-            if (!nomeDoProduto.equalsIgnoreCase("Q")) {
+            if (!nomeDoProduto.equalsIgnoreCase("Q")) { // não vi solicitação deste valor durante a execução.
                 System.out.println("INFORME A QUANTIDADE: ");
                 quantidade = scanner.nextInt();
             }
