@@ -6,7 +6,7 @@ import java.util.Scanner;
  */
 public class App {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in); // Este objeto não está sendo utilizado.
 
         Sistema sistema = new Sistema();
 
