@@ -64,17 +64,25 @@ public class Sistema {
 
         while (true) {
             System.out.println("INFORME O NOME DO PRODUTO " + (listagem.tamanhoLista() + 1) + ": ");
-            scanner.nextLine();
             String nomeDoProduto = scanner.nextLine();
             int quantidade = 0;
 
             if (!nomeDoProduto.equalsIgnoreCase("Q")) {
-                System.out.println("INFORME A QUANTIDADE: ");
-                quantidade = scanner.nextInt();
-            }
-            else
+                try {
+                    System.out.println("INFORME A QUANTIDADE: ");
+                    quantidade = scanner.nextInt();
+                } catch (InputMismatchException e) {
+                    System.out.println("ENTRADA INVALIDA. INFORME UM NUMERO INTEIRO.");
+                } catch (Exception exception) {
+                    System.out.println(exception.getMessage());
+                    exception.printStackTrace();
+                }
+                scanner.nextLine();
+            } else
                 break;
             listagem.adicionarProduto(nomeDoProduto, quantidade);
+
+
         }
     }
 
@@ -165,6 +173,7 @@ public class Sistema {
     public void menuInicial() {
         while (true) {
 
+            int opcao = 0;
             System.out.println("\nMENU" +
                     "\n1 - ADICIONAR ITENS" +
                     "\n2 - EXIBIR LISTA" +
@@ -172,15 +181,14 @@ public class Sistema {
                     "\n4 - IR AO MERCADO" +
                     "\n5 - EXCLUIR ITEM" +
                     "\n6 - SAIR");
-            System.out.print("INFORME: ");
-            System.out.println();
-            int opcao = 0;
+            System.out.println("INFORME: ");
             try {
                 opcao = scanner.nextInt();
+                scanner.nextLine(); // Consumindo a proxima linha no buffer
             } catch (InputMismatchException e) {
                 System.out.println("ENTRADA INVALIDA. INFORME UM NUMERO INTEIRO.");
                 scanner.nextLine(); // Consumindo a proxima linha no buffer
-                continue; //Retornando ao inicio do loop
+                continue; // Retornando ao inicio do loop
             }
 
             switch (opcao) {
@@ -213,7 +221,7 @@ public class Sistema {
                     break;
                 case 5:
                     try {
-                        excluirItem();
+                        editarItem();
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -226,5 +234,31 @@ public class Sistema {
             }
         }
 
+    }
+
+    public void editarItem() {
+        System.out.println("INFORME O NUMERO DO PRODUTO QUE DESEJA EDITAR:");
+        int numeroDoProduto = scanner.nextInt();
+        System.out.println("QUAL INFORMAÇÃO DESEJA EDITAR?" +
+                "\n1 - NOME DO PRODUTO" +
+                "\n2 - QUANTIDADE DO PRODUTO" +
+                "\n3 - PREÇO" +
+                "\nINFORME:");
+        int opcao = scanner.nextInt();
+        if (opcao == 1) {
+            System.out.println("INFORME O NOME:");
+            String nomeDoProduto = scanner.nextLine();
+            listagem.retornarProduto(numeroDoProduto).setNome(nomeDoProduto);
+        } else if (opcao == 2) {
+            System.out.println("INFORME A QUANTIDADE:");
+            int quantidadeDoProduto = scanner.nextInt();
+            listagem.retornarProduto(numeroDoProduto).setQuantidade(quantidadeDoProduto);
+        } else if (opcao ==3) {
+            System.out.println("INFORME O PREÇO:");
+            double precoDoProduto = scanner.nextDouble();
+            listagem.retornarProduto(numeroDoProduto).setPreco(precoDoProduto);
+        } else {
+
+        }
     }
 }
