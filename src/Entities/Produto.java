@@ -28,6 +28,14 @@ public class Produto {
     }
 
     /**
+     * Metodo settet para editar o parametro nome quando o usuario selecionar o metodo editarProduto()
+     * @param nome String nome que sera definido como o nome do produto
+     */
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    /**
      * Metodo getter para o atriburo preco dos objetos da classe Produto. E utilizado para retornar o valor dos produtos e realizar o
      * calculo total de cada produto e da compra total do usuario.
      * @return Retorna um valor double, o ultimo preco definido pelo usuario.
@@ -52,6 +60,11 @@ public class Produto {
      */
     public int getQuantidade() {
         return quantidade;
+    }
+
+
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
     @Override
