@@ -179,8 +179,9 @@ public class Sistema {
                     "\n2 - EXIBIR LISTA" +
                     "\n3 - ADICIONAR CESTA BÁSICA" +
                     "\n4 - IR AO MERCADO" +
-                    "\n5 - EXCLUIR ITEM" +
-                    "\n6 - SAIR");
+                    "\n5 - EDITAR ITEM" +
+                    "\n6 - EXCLUIR ITEM" +
+                    "\n7 - SAIR");
             System.out.println("INFORME: ");
             try {
                 opcao = scanner.nextInt();
@@ -227,8 +228,14 @@ public class Sistema {
                     }
                     break;
                 case 6:
-                    System.exit(0);
+                    try {
+                        excluirItem();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
+                case 7:
+                    System.exit(0);
                 default:
                     System.out.println("ENTRADA INVALIDA. ESCOLHA UMA DAS OPCOES ABAIXO:");
             }
@@ -245,20 +252,21 @@ public class Sistema {
                 "\n3 - PREÇO" +
                 "\nINFORME:");
         int opcao = scanner.nextInt();
+        scanner.nextLine();
         if (opcao == 1) {
             System.out.println("INFORME O NOME:");
             String nomeDoProduto = scanner.nextLine();
-            listagem.retornarProduto(numeroDoProduto).setNome(nomeDoProduto);
+            listagem.retornarProduto(numeroDoProduto - 1).setNome(nomeDoProduto);
         } else if (opcao == 2) {
             System.out.println("INFORME A QUANTIDADE:");
             int quantidadeDoProduto = scanner.nextInt();
-            listagem.retornarProduto(numeroDoProduto).setQuantidade(quantidadeDoProduto);
+            listagem.retornarProduto(numeroDoProduto - 1).setQuantidade(quantidadeDoProduto);
         } else if (opcao ==3) {
             System.out.println("INFORME O PREÇO:");
             double precoDoProduto = scanner.nextDouble();
-            listagem.retornarProduto(numeroDoProduto).setPreco(precoDoProduto);
+            listagem.retornarProduto(numeroDoProduto - 1).setPreco(precoDoProduto);
         } else {
-
+            System.out.println("OPCAO INVALIDA");
         }
     }
 }
