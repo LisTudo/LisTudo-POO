@@ -61,7 +61,7 @@ public class Sistema {
      * produtos antes de retornar ao menu inicial.
      */
     public void lerProdutos() {
-
+        System.out.println("APERTE Q PARA SAIR");
         while (true) {
             System.out.println("INFORME O NOME DO PRODUTO " + (listagem.tamanhoLista() + 1) + ": ");
             String nomeDoProduto = scanner.nextLine();
@@ -92,7 +92,7 @@ public class Sistema {
      * adicionar mais algum item personalizado na lista, atraves do metodo adicionarProduto().
      */
     public void exibirCestaBasica() {
-        scanner.nextLine();
+        //scanner.nextLine();
         System.out.println("DESEJA ADICIONAR OS ITENS ABAIXO?");
         System.out.println("\nARROZ" +
                 "\nFEIJÃO" +
@@ -205,10 +205,18 @@ public class Sistema {
                     }
                     break;
                 case 2:
-                    apresentarLista();
+                    try {
+                        apresentarLista();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 3:
-                    exibirCestaBasica();
+                    try {
+                        exibirCestaBasica();
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 4:
                     try { // Tratamento de excecoes para caso o usuario digite um valor que não seja int para a quantidade
@@ -269,4 +277,5 @@ public class Sistema {
             System.out.println("OPCAO INVALIDA");
         }
     }
+
 }
