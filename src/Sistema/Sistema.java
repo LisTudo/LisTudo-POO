@@ -22,6 +22,7 @@ public class Sistema {
      * Metodo responsavel por dar as boas vindas ao usuario, sinalizando o inicio do programa.
      */
     public void boasVindas() {
+        System.out.println("--LISTUDO--");
         System.out.println("BOAS VINDAS!");
     }
 
