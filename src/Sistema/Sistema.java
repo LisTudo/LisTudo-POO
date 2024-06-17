@@ -236,6 +236,10 @@ public class Sistema {
 
     }
 
+    /**
+     * Metodo responsavel pela alteracao dos atributos dos produtos da lista. Oferece ao usuario como opcao de alteracao o nome, a quantidade
+     * ou o preco de cada produto.
+     */
     public void editarItem() {
         System.out.println("INFORME O NUMERO DO PRODUTO QUE DESEJA EDITAR:");
         int numeroDoProduto = scanner.nextInt();
@@ -258,7 +262,7 @@ public class Sistema {
             double precoDoProduto = scanner.nextDouble();
             listagem.retornarProduto(numeroDoProduto).setPreco(precoDoProduto);
         } else {
-
+            System.out.println("INFORME UMA OPCAO VALIDA.");
         }
     }
 }
